@@ -1,0 +1,52 @@
+\documentclass[12pt,a4paper]{article}	% Tipo de documento con letra a 10pt y papel A4
+\usepackage[spanish]{babel}				% Palabras reservadas traducidas al español 
+\usepackage[utf8]{inputenc}				% Para poder imprimir caracteres especiales
+\usepackage{fontenc}					% Para acentos
+\usepackage[margin = 2cm]{geometry}	% Dimensiones del documento
+\usepackage{nameref}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Fuentes, funciones y teoremas matemáticos
+\usepackage{amsmath}					% Carga los entornos matemáticos
+\usepackage{amsfonts}					% Carga las fuentes matemáticas
+\usepackage{amssymb}					% Carga caracteres matemáticos especiales
+\usepackage{amsthm}						% Crea entornos de teoremas, definiciones, etc.
+\usepackage{mdframed}					% Sirve para encerrar los teoremas de amsthm en cajas para darle un estilo más personalizado
+\usepackage{mathtools}					% Extensión de símbolos matemáticos
+\usepackage{cases}						% Para crear el entorno de definición de una expresión por casos
+\usepackage{cancel}						% Permite tachar expresiones matemáticas			
+\usepackage{leftindex}					% Para poder añadir subíndices y superíndices del lado izquierdo de una expresión
+\usepackage[italic]{derivative}					% Extensión de las funciones de derivadas
+\usepackage[intlimits]{esint}			% Extensión de símbolos de integrales
+\usepackage{thmtools}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{listings}					% Para ingresar código fuente en diferentes lenguajes de programación
+\usepackage{pifont}						% Inserta doodles
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Para insertar pseudocódigo
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[table, xcdraw]{xcolor}						% Permite modificar y definir colores
+\usepackage{multicol}					% Permite crear múltiples columnas de texto en el documento
+\usepackage{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%
+% Para insertar y crear figuras
+\usepackage{graphicx}					% Para insertar gráficos
+\usepackage{tikz}						% Para crear figuras
+\usepackage{venndiagram}				% Extensión de Tikz para crear diagramas de Venn
+\usepackage{wrapfig}					% Para poner figuras insertadas dentro del texto
+%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{todonotes}					% Para añadir notas y to-do lists					
+\usepackage{fancyhdr}					% Para personalizar los encabezados y pies de página
+\usepackage[explicit]{titlesec}					% Para poder personalizar el estilo de los capítulos, secciones, subsecciones, etc.
+\usepackage[many]{tcolorbox}			% Para poder crear cajas de color
+\tcbuselibrary{theorems}					
+\usepackage{enumerate}					% Para poder modificar el estilo de los items en el entorno enumerate
+%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{ifthen}                     % Para poder hacer control de flujo
+\usepackage{xargs}                      % Para poder poner más de un argumento opcional en comandos personalizados

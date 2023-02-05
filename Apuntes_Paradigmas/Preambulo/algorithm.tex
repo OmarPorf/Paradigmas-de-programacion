@@ -1,0 +1,33 @@
+% Pseudocódigo
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\algorithmiccomment}[1]{// #1}
+\newcommand{\tab}{\STATE}
+\newcommand{\ot}{\leftarrow}
+\newcommand{\aelse}{\ELSE}
+\newcommand{\aelsif}[1]{\ELSIF{#1}}
+\newcommand{\ato}{\TO}
+\newcommand{\anot}{\NOT}
+\newcommand{\aand}{\AND}
+\newcommand{\aor}{\OR}
+\newcommand{\axor}{\XOR}
+\newcommand{\ainput}{\REQUIRE}
+\newcommand{\aoutput}{\ENSURE}
+\newcommand{\areturn}{\RETURN}
+\newcommand{\atrue}{\TRUE}
+\newcommand{\afalse}{\FALSE}
+\newcommand{\aprint}{\PRINT}
+\newcommand{\acomment}[1]{\COMMENT{#1}}
+\newenvironment{aif}[1]{\IF{#1}}{\ENDIF}
+\newenvironment{afor}[1]{\FOR{#1}}{\ENDFOR}
+\newenvironment{aforall}[1]{\FORALL{#1}}{\ENDFOR}
+\newenvironment{awhile}[1]{\WHILE{#1}}{\ENDWHILE}
+\newenvironment{aloop}{\LOOP}{\ENDLOOP}
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Redefinición de nombres del entorno algorithm
+\floatname{algorithm}{Algoritmo}
+\renewcommand{\listalgorithmname}{Lista de Algoritmos}
+%%%%%%%%%%%%%%%%%%%%%%

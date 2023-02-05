@@ -1,0 +1,489 @@
+\section{Bases de Python}
+	\subsection{Sintaxis de Python}\label{subsec: sintaxis}
+	En Python 3, las sentencias terminan con \emph{nueva línea} (retorno de carro). Esto implica que cada línea en Python es una sentencia. 
+	\begin{lstlisting}[language={python}]
+print('id: ', 1)    # Una sentencia
+print('Nombre: ', 'Steve')  # Otra sentencia
+print('Apellido: ', 'Jobs') # Otra sentencia mas
+	\end{lstlisting}
+	Para escribir sentencias en más de una línea usamos la diagonal invertida (\textbackslash).
+	\begin{lstlisting}[language={python}]
+if 100 > 99 and \ 
+    200 <= 300 and \
+    True != False:
+        print('Hola mundo!')
+'''
+Lo que es equivalente a
+if 100 > 99 and 200 <= 300 and True != False:
+    print('Hola mundo!')
+'''
+	\end{lstlisting}
+    Es importante notar que la diagonal invertida divide una sentencia en varias líneas, pero no diferentes sentencias en una misma línea.
+    \begin{lstlisting}[language={python}]
+print('Hola \ 
+    mundo!')    # equivalente a <<print('Hola mundo!')>>
+print('Hola') \ 
+print(' mundo!')    # equivalente a <<print('Hola') print(' mundo!')>>
+                    # lo cual es un error de sintaxis
+    \end{lstlisting}
+    Si queremos poner multiples sentencias en la misma línea, usamos un punto y coma (;) entre cada sentencia.
+    \begin{lstlisting}[language={python}]
+print('id: ', 1) ; print('Nombre: ', 'Steve') ; print('Apellido: ', 'Jobs') 
+# Tres sentencias en una sola linea
+    \end{lstlisting}
+    Sin embargo, las expresiones en paréntesis, corchetes y llaves pueden ser escritas en múltiples líneas sin usar diagonal invertida.
+    \begin{lstlisting}[language={python}]
+lista = [1, 2, 3, 4
+         5, 6, 7, 8,
+         9, 10, 11, 12]
+    \end{lstlisting}
+    \subsubsection{Identación}\label{subsubsec: identacion}
+    Los espacios en blanco o tabulaciones al principio de una línea es considerada como nivel de identación de la línea, lo que se usa para definir un grupo de sentencias. Las sentencias con el mismo nivel de identación se consideran un mismo grupo o bloque.\par 
+    Esto se usa como por ejemplo para funciones, clases, ciclos y condicionales en Python las cuales usan bloques de sentencias para ser ejecutadas. En otros lenguajes de programación, como \emph{C} o \emph{Java}, para determinar un bloque de sentencias usamos llaves.\par 
+    \textbf{Reglas de identación}
+    \begin{itemize}
+        \item Usar dos puntos (:) para empezar un bloque y oprimir \emph{Enter}.
+        \item Todas las líneas del bloque deben tener la misma identación, ya sea espacio o tabulación.
+        \item Se recomiendan cuatro espacios para la identación para hacer que el código sea más fácil de leer. No combinar espacios con tabulación en el mismo bloque.
+        \item Un bloque puede tener un bloque interno con el siguiente nivel de identación.
+    \end{itemize}
+    \begin{lstlisting}[language={python}]
+if 10 > 5:  # inicio del primer bloque
+    print("10 es mayoe que 5")   # primer bloque
+    print("ahora checa 20 > 10")   # primer bloque
+    if 20 > 10: # inicio de un bloque interno
+        print("20 es mayor que 10")  # bloque interno
+elif: # inicio del segundo bloque
+    print("10 es menor que 5")  # segundo bloque
+    print("Esto nunca se imprime")  # segundo bloque
+    \end{lstlisting}
+    \subsubsection{Comentarios}\label{subsubsec: comentarios}
+    En Python, el símbolo de gato (\#) indica el inicio de una línea de comentarios.  Es efectivo hasta el final de la línea en el editor.
+    \begin{lstlisting}[language={python}]
+# esto es un comentario
+print('Hola mundo')
+print("Bienvenido al curso de paradigmas de programacion")  # comentario al final de la sentencia
+    \end{lstlisting}
+    En Python, no hay como escribir comentarios de varias líneas, o un bloque de comentarios. Para comentarios de varias líneas, cada línea debería haber llevado el \# antes de iniciarlo.\par 
+    Sin embargo, tres apóstrofos (' ' ') se pueden tratar como un comentario si no es una \emph{docstring} de la función o la clase (vea \nameref{subsec: funciones}).
+    \begin{lstlisting}[language={python}]
+'''
+comentario 1
+comentario 2
+comentario 3
+'''
+    \end{lstlisting}
+    \subsubsection{Convención de nombres}\label{subsubsec: conv_nom}
+    El programa de Python puede contener variables, funciones, clases, módulos, paquetes, etc. El \emph{identificador} es el nombre que se le da a cada elemento del programa. Un identificador debería iniciar con cualquier letra del alfabeto (ya sea minúscula o mayúscula) o un guión bajo (\textunderscore). Después de eso, más letras del alfabeto, dígitos o guiones bajos pueden usarse para formar el identificador. No se admiten otros caracteres.
+    \begin{itemize}
+        \item Los identificadores en Python distinguen entre mayúsculas y minúsculas, lo que significa que nombrar a una variable como \texttt{edad} y \texttt{Edad} es diferente.
+        \item Los nombres de las clases deberían escribirse en FormaDeCamello. Además, debería empezar por una letra mayúscula, como por ejemplo \texttt{MyClass}, \texttt{Employee}, \texttt{Person}.
+        \item Las funciones deberían comenzar por letra minúscula. Si se requiere de más palabras, usar guión bajo, como por ejemplo \texttt{add(num)}, \texttt{calculate\textunderscore tax(amount)}.
+        \item El nombre de las variables en una función deberían ser minúsculas, como por ejemplo \texttt{x}, \texttt{num}, \texttt{salary}
+        \item Los nombres de módulos y paquetes deberían ir en minúscula y, de preferencia, con guión bajo, como por ejemplo \texttt{tax\textunderscore calculation}, \texttt{mymodule}.
+        \item Los nombres de constantes deberían ir en mayúsculas, como por ejemplo \texttt{RATE}, \texttt{TAX\textunderscore RATE}.
+        \item Usar uno o más guiones bajos cuando se nombran los atributos de una clase.
+        \item Dos guiones bajos al inicio y al final se usan para usos especiales en el mismo Python, como por ejemplo \texttt{\textunderscore\textunderscore add\textunderscore\textunderscore}, \texttt{\textunderscore\textunderscore init\textunderscore\textunderscore}.
+        \item El identificador no puede ser una palabra reservada. (vea \nameref{subsubsec: keywords})
+    \end{itemize}
+    \subsubsection{Salida a la pantalla y leer entradas}\label{subsubsec: salida_entrada}
+    Para imprimir a la salida estándar usamos \emph{print}. Este imprime el valor de cualquier expresión en Python. Además, podemos imprimir diferentes valores al mismo tiempo usando una coma.
+    \begin{lstlisting}[language={python}]
+nombre = "Ram"
+print(nombre)
+edad = 21
+print(nombre, edad)
+print("Nombre: ", nombre, ", Edad: ", edad)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+Ram
+Ram 21
+Nombre: Ram, Edad: 21
+    \end{lstlisting}
+    Para leer strings que ingrese el usuario usamos \emph{input}, de la cual la cadena puede ser asignada a una variable.
+    \begin{lstlisting}[language={python}]
+name = input("Ingresa tu nombre: ")
+age = input("Ingresa tu edad: ")
+    \end{lstlisting}
+    y se ve como
+    \begin{lstlisting}[language={[latex]tex}]
+Ingresa tu nombre: _Steve_
+Ingresa tu edad: _21_
+    \end{lstlisting}
+    \subsection{Palabras reservadas de Python}\label{subsubsec: keywords}
+    Como cualquier otro lenguaje de programación, Python tiene un conjunto de palabras predefinidas llamadas \emph{palabras reservadas} o \emph{keywords}. Una regla preestablecida de cómo usar cada palabra reservada se llama \emph{sintaxis}.\par 
+    Python 3 tiene 33 palabras reservadas. Dado que están predefinidas, no pueden ser utilizadas para otros propósitos. 
+    \begin{table}[h]
+        \centering
+            \begin{tabular}{|c|ccc}
+            \hline
+            False  & \multicolumn{1}{c|}{def}     & \multicolumn{1}{c|}{if}       & \multicolumn{1}{c|}{raise}  \\
+            None   & \multicolumn{1}{c|}{del}     & \multicolumn{1}{c|}{import}   & \multicolumn{1}{c|}{return} \\
+            True   & \multicolumn{1}{c|}{elif}    & \multicolumn{1}{c|}{in}       & \multicolumn{1}{c|}{try}    \\
+            and    & \multicolumn{1}{c|}{else}    & \multicolumn{1}{c|}{is}       & \multicolumn{1}{c|}{while}  \\
+            as     & \multicolumn{1}{c|}{except}  & \multicolumn{1}{c|}{lambda}   & \multicolumn{1}{c|}{with}   \\
+            assert & \multicolumn{1}{c|}{finally} & \multicolumn{1}{c|}{nonlocal} & \multicolumn{1}{c|}{yield}  \\
+            break  & \multicolumn{1}{c|}{for}     & \multicolumn{1}{c|}{not}      & \multicolumn{1}{c|}{class}  \\
+            from   & \multicolumn{1}{c|}{or}      & \multicolumn{1}{c|}{continue} & \multicolumn{1}{c|}{global} \\ \cline{2-4} 
+            pass   &                              &                               &                             \\ \cline{1-1}
+            \end{tabular}
+    \end{table}
+    \subsection{Variables}\label{subsec: variables}
+    En Python, una variable es el nombre dado a un valor para que este se vuelva fácil de referenciar después. En otras palabras, una variable apunta a un objeto. Un valor es asignado a una variable con el operador \texttt{=} donde el lado izquierdo deberá ser el nombre de la variable y el lado derecho el valor a asignar.
+    \begin{lstlisting}[language={python}]
+num = 10    # Le asignamos el valor de 10 a la variable <<num>>
+print(num)  # Imprimimos su valor
+print(2 * num)  #Imprimimos el doble de su valor
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+10
+20
+    \end{lstlisting}
+    Las variables en Python son objetos. Usamos \emph{type} para obtener el nombre de la clase de un objeto (vea \nameref{subsec: tipos_datos}).
+    \begin{lstlisting}[language={python}]
+num = 10
+greet = 'Hello world'
+isPythonGood = True
+print(type(num))
+print(type(greet))
+print(type(isPythonGood))
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+<class 'int'>
+<class 'string'>
+<class 'bool'>
+    \end{lstlisting}
+    A comparación de lenguajes como \emph{C} o \emph{Java}, \emph{Python} es un lenguaje de tipo dinámico, es decir que no debemos declarar el tipo de variable. El tipo de variable se asignará dinámicamente basándose en el valor asignado.
+    \subsubsection{Identidad de los objetos}\label{subsubsec: id_obj}
+    Cada objeto en Python tiene un ID, esto es la dirección de memoria del objeto representada por un valor entero. Para saber el ID de un objeto usamos \emph{id}.
+    \begin{lstlisting}[language={python}]
+x = 100
+print(id(x))
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+10921728
+    \end{lstlisting}
+    Además, el ID cambiará si la variable cambia a un diferente valor.\par 
+    Multiples variables asignadas a la misma literal tendrán el mismo ID
+    \begin{lstlisting}[language={python}]
+x = 100
+y = x
+z = y
+print(id(x))
+print(id(y))
+print(id(z))
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+10921728
+10921728
+10921728
+    \end{lstlisting}
+    \subsubsection{Asignación de multiples variables}\label{subsubsec: assign_var}
+    Podemos declarar multiples variables y asignar valores a cada variable en una única sentencia.
+    \begin{lstlisting}[language={python}]
+x, y, z = 10, 'Hello', True
+print("x:", x, "y:", y, "z:", z)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+x: 10 y: Hello z: True
+    \end{lstlisting}
+    El evaluar cada variable separada por comas es un error de sintaxis.
+    \begin{lstlisting}[language={python}]
+x = 10, y = 'Hello', z = True   # Error de sintaxis
+    \end{lstlisting}
+    Las convenciones para nombrar variables pueden verse en \nameref{subsubsec: conv_nom}.
+    \subsection{Tipos de datos}\label{subsec: tipos_datos}
+    Los tipos de datos son la clasificación o categorización de los datos. Python soporta los siguientes tipos de datos internos.
+    \subsubsection{Tipos escalares}\label{subsubsec: dato_escalar}
+    \begin{itemize}
+        \item\nameref{subsubsec: int}\par
+        Son enteros positivos o negativos $(\zmath)$.
+        \[\texttt{-10, 10, 456, 4654654}\]
+        \item\nameref{subsubsec: float}\par
+        Cualquier número real con representación punto flotante, es decir que la parte fraccional del número esté representada por un símbolo decimal o notación científica.
+         \[\texttt{1.29, 3.45567e2}\]
+         \item \nameref{subsubsec: complex}\par 
+         Un número con una parte real y una parte imaginaria representados como
+         \[\texttt{x+yj}\]
+         con \texttt{j} la unidad imaginaria.
+         \item \texttt{bool}\par 
+         Datos con uno de los valores \texttt{True} o \texttt{False}. 
+         \item \texttt{None}\par 
+         \texttt{None} representa al objeto vacío en Python. \texttt{None} es regresado por una función que no regresa un valor explícito.
+    \end{itemize}
+    \subsubsection{Tipos secuenciales}\label{subsubsec: Tipos_secuenciales}
+    Una secuencia es una colección ordenada de tipos de datos similares o diferentes. Python tiene los siguientes tipos de datos:
+    \begin{enumerate}
+        \item \nameref{subsubsec: strings}: Un \emph{string} o \emph{cadena de caracteres} es una colección de uno o más caracteres puestos en comillas simples, dobles o triples.
+        \item \nameref{subsubsec: lista}: Una \emph{lista} es un objeto de una colección de datos ordenados, no necesariamente del mismo tipo, puestos entre corchetes.
+        \item \nameref{subsubsec: tupla}: Una \emph{tupla} es un objeto de una colección de datos ordenados, no necesariamente del mismo tipo, puestos entre paréntesis.
+        \item \nameref{subsubsec: diccionario}: Un \emph{diccionario} es un objeto que es una colección de datos no ordenados de forma par, llave : valor. Una colección de tales pares está encerrada por llaves. 
+    \end{enumerate}
+	\subsection{Operadores}
+	\subsubsection{Operadores aritméticos}
+	Los operadores aritméticos tienen la habilidad de ralizar operaciones matemáticas que son fundamentales o ampliamente usadas en los lenguajes de programación.
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Operador & Descripción \\
+			\hline
+			\texttt{x + y}& Devuelve la suma de $ x $ y $ y $ \\
+			\hline
+			\texttt{x - y}& Devuelve la resta de $ x $ menos $ y $ \\
+			\hline
+			\texttt{x * y}& Devuelve el producto de $ x $ y $ y $ \\
+			\hline
+			\texttt{x / y}& Devuelve el cociente de $ x $ entre $ y $ \\
+			\hline
+			\texttt{x\%y}& Devuelve el residuo de $ x $ módulo $ y $ \\
+			\hline
+			\texttt{x ** y}& Devuelve la potencia de $ x $ a la $ y $ \\
+			\hline
+			\texttt{x // y}& Devuelve el cociente entero de $ x $ entre $ y $ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{lstlisting}[language={python}]
+print(2 + 3)
+print(2 * 3)
+print(2 / 3)
+print(2 ** 10)
+print(2 ** 0.5) # raiz cuadrada
+print(10 % 2)
+print(10 % 0.1) # exclusivo en python 
+	\end{lstlisting}
+    y devuelve 
+    \begin{lstlisting}[language={python}]
+5
+6
+0.6666666666666666
+1024
+1.4142135623730951
+0
+0.09999999999999945
+    \end{lstlisting}
+	\subsubsection{Operadores de comparación}
+	Los operadores de comparación son aquellos que nos ayudan a comparar valores y regresan un valor booleano \texttt{True} o \texttt{False}.
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Operador & Descripción \\
+			\hline
+			\texttt{x == y}& Compara si $ x $ y $ y $ son iguales \\
+			\hline
+			\texttt{x != y}& Compara si $ x $ y $ y $ no son iguales \\
+			\hline
+			\texttt{x >\ y}& Compara si $ x $ es mayor que $ y $ \\
+			\hline
+			\texttt{x <\ y}& Compara si $ x $ es menor que $ y $ \\
+			\hline
+			\texttt{x >= y}& Compara si $ x $ es mayor o igual que $ y $ \\
+			\hline
+			\texttt{x <= y}& Compara si $ x $ es menor o igual que $ y $ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\subsubsection{Operadores lógicos}
+	Los operadores lógicos operan valores booleanos y regresan valores booleanos \texttt{True} o \texttt{False}.
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Operador & Descripción \\
+			\hline
+			\texttt{not}& Devuelve \texttt{True} si el valor es \texttt{False} y viceversa \\
+			\hline
+			\texttt{and}& Devuelve \texttt{True} si ambos valores son \texttt{True} y \texttt{False} en otro caso \\
+			\hline
+			\texttt{or}& Devuelve \texttt{False} si ambos son \texttt{False} y \texttt{True} en otro caso \\
+			\hline
+		\end{tabular}
+	\end{center}	
+	\subsection{Funciones}\label{subsec: funciones}
+	Python incluye muchas funciones integradas. Estas funciones actúan de forma predefinida y pueden ser llamadas por cualquier programa. Sin embargo, si no encuentras una función integrada que sirva para el propósito que quieres, Python permite que como usuario puedas definir tus propias funciones con la palabra reservada \emph{def}.
+	\begin{lstlisting}[language = {python}]
+def funcion_name(parametros):
+    """ docstring """
+    sentencia1
+    sentencia2
+    ...
+    ...
+    return expresion
+	\end{lstlisting}   
+	La palabra reservada \emph{def} es precedida por un indentificador que será el nombre de la función (vea \nameref{subsubsec: conv_nom}) y entre paréntesis los parámetros que recibirá la función.\par 
+	La primer sentencia en el cuerpo de la función puede ser un \emph{docstring} que es un string opcional que explica la funcionalidad de la función o clase (vea \nameref{subsec: poo}).\par 
+	Opcionalmente, la última sentencia en el bloque de la función es una sentencia \emph{return}. Esta devuelve una ejecución de control al llamar a la función. Si una expresión es añadida en frente del return, su valor también es devuelto al llamar el código.
+	\begin{lstlisting}[language = {python}]
+def suma(x, y):
+    """ Esta funcion devuelve la suma de dos numeros """
+    z = 0
+    z = x + y
+    return z
+	\end{lstlisting}
+	Del código de arriba, la primer sentencia es un docstring que menciona lo que hace la función, la segunda declara una variable local de la función, la tercera asigna la suma de \texttt{x} y \texttt{y} a \texttt{z} y, finalmente devuelve el valor de \texttt{z}.\par Si una función no tiene una sentencia return, entonces por default devuelve un \emph{None}.
+	\begin{lstlisting}[language = {python}]
+def saludo():
+    """ Esta funcion saluda """
+    print("Hola Mundo !!!")
+val = saludo()
+print(val)
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+Hola Mundo !!!
+None
+	\end{lstlisting}
+	La función \emph{help} muestra el docstring.
+	\begin{lstlisting}[language = {python}]
+>>help(saludo)
+Help on function saludo in module __main__:
+    
+saludo()
+     Esta funcion saluda
+	\end{lstlisting}
+	\subsubsection{Parámetros de una función}
+	Es posible definir una función que reciba uno o más parámetros (también llamados \emph{argumentos}) y los usa para procesarlos adentro del bloque de la función. 
+	\begin{lstlisting}[language = {python}]
+def saludo(nombre):
+    print(f"Hola {nombre}!")
+saludo("Steve")
+saludo(123)
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+Hola Steve!
+Hola 123!
+	\end{lstlisting}
+	Los nombres de los parámetros usados en la definición de la función se llaman \emph{parámetros formales}. Los objetos realmente usados mientras se llama a la función se llaman \emph{parámetros reales}.\par 
+	A los parámetros de la función se les puede especificar el tipo de dato usando : y después el tipo de dato.
+	\begin{lstlisting}[language = {python}]
+def saludo(nombre : str):   # el parametro <<nombre>> es de tipo string
+    print(f"Hola {nombre}!")
+saludo("Steve") # llamando a la funcion con un argumento string
+saludo(123) # error dado que <<123>> es un argumento de tipo int
+	\end{lstlisting}
+	\subsubsection{Parámetros múltiples}
+	Una función puede tener múltiples parámetros.
+	\begin{lstlisting}[language = {python}]
+def saludo(nombre1, nombre2, nombre3):
+    print(f"Hola {nombre1}, {nombre2}, y {nombre3}")
+    
+saludo("Steve", "Bill", "Yash")
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+Hola Steve, Bill, y Yash
+	\end{lstlisting}
+	\subsubsection{Número desconocido de datos}
+	Una función en Python puede tener un número desconocido de datos poniendo \emph{*} antes del parámetro si no se sabe cuantos argumentos el usuario pasará.
+	\begin{lstlisting}[language = {python}]
+def saludo(*nombres):
+    i = 0
+    print("Hola", end=" ")
+    while len(names) > i:
+        print(nombres[i], end=", ")
+        i += 1
+
+saludo("Steve", "Bill", "Yash", "Kapil", "John", "Amir")
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+Hola Steve, Bill, Yash, Kapil, John, Amir
+	\end{lstlisting}
+	\subsubsection{Argumentos con keyword}
+	Para llamar a una función con argumentos, el mismo número de argumentos reales deben ser pasados. Sin embargo, una función puede ser llamada al pasar los valores de los parámetros usando los nombres de los parámetros en cualquier orden.
+	\begin{lstlisting}[language = {python}]
+def greet(firstname, lastname):
+    print(f"Hola {firstname} {lastname}")
+    
+greet(lastname = 'Jobs', firstname = 'Steve')   # pasando los parametros en cualquier orden usando keyword
+	\end{lstlisting}
+	Una función puede tener un único parámetro precediendo a un \emph{**}. Este tipo de parámetro puede recibir cualquier argumento con keyword.
+	\begin{lstlisting}[language = {python}]
+def greet(**person):
+	print(f'Hola {person['firstname']} {person['lastname']}')
+
+greet(firstname='Steve', lastname='Jobs')
+greet(lastname='Jobs', firstname='Steve')
+greet(firstname='Bill', lastname='Gates', age=55) 
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+Hello Steve Jobs
+Hello Steve Jobs
+Hello Bill Gates
+	\end{lstlisting}
+	\subsubsection{Parámetro con valor por default}
+	Cuando definimos una función, sus parámetros se les pueden ser asignados valor por default. Estos valores son sustituidos si un argumento real apropiado es pasado cuando se llama a la función. Sin embargo, si el argumento real no es dado, el valor por default será usado por la función.
+	\begin{lstlisting}[language = {python}]
+def greet(name = 'Guest'):
+    print ('Hello', name)
+
+greet()
+greet('Steve')
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+Hello Guest
+Hello Steve
+	\end{lstlisting}
+	\subsection{Funciones lambda y funciones anónimas}
+	La palabra reservada \emph{lambda} es usada para definir \emph{funciones anónimas} en Python. Usualmente, tales funciones solo son para usarse una vez.
+	\begin{lstlisting}[language = {python}]
+lambda argumentos : expresion
+	\end{lstlisting}
+	La función lambda puede tener cero o más argumentos después del :. Cuando se llama a la función, se ejecuta la expresión después del :.
+	\begin{lstlisting}[language = {python}]
+# funcion def
+def cuadrado(x):
+    return x * x
+# funcion lambda
+square = lambda x : x * x
+print("Con def:", cuadrado(2))
+print("Con lambda:", square(3))
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+Con def: 4
+Con lambda: 9
+	\end{lstlisting}
+	Una función lambda puede tener parámetos múltiples.
+	\begin{lstlisting}[language = {python}]
+suma = lambda x, y, z : x + y +z
+print(suma(5, 10, 15))
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+30
+	\end{lstlisting}
+	Una función lambda puede tener un número desconocido de argumentos.
+	\begin{lstlisting}[language = {python}]
+suma = lambda *x : x[0] + x[1] + x[2] + x[3]
+print(suma(5, 10, 15, 20))
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+50
+	\end{lstlisting}
+	Una función lambda puede no tener parámetros.
+	\begin{lstlisting}[language = {python}]
+saludo = lambda : print("Hola Mundo")
+saludo()
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+Hola Mundo
+	\end{lstlisting}
+	Podemos declarar una función lambda y llamarla como una función anónima sin asignarla a ninguna variable.
+    \begin{lstlisting}[language = {python}]
+print((lambda x : x * x)(5))
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+25
+    \end{lstlisting}

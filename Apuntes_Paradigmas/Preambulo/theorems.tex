@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%
+% Definición de estilos para los teoremas
+\mdfdefinestyle{morado}{
+	linecolor = mypurple,						% Color de línea
+	linewidth = 2pt,							% Ancho de la línea
+	frametitlerule = true,						% Separar el título del contenido
+	frametitlebackgroundcolor = mypurple!20,	% Color de fondo del título
+	topline = false,							% No mostrar las líneas superiores e inferiores
+	bottomline = false,
+	rightline = false,
+	innertopmargin = \topskip
+}
+
+\mdfdefinestyle{azul}{
+	linecolor = myblue,
+	linewidth = 2pt,
+	frametitlerule = true,
+	frametitlebackgroundcolor = myblue!20,
+	topline = false,
+	bottomline = false,
+	rightline = false,
+	innertopmargin = \topskip
+}
+\mdfdefinestyle{cian}{
+	linecolor = mycyan,
+	linewidth = 2pt,
+	frametitlerule = true,
+	frametitlebackgroundcolor = mycyan!20,
+	topline = false,
+	bottomline = false,
+	rightline = false,
+	innertopmargin = \topskip
+}
+\mdfdefinestyle{verde}{
+	linecolor = mygreen,
+	linewidth = 2pt,
+	frametitlerule = true,
+	frametitlebackgroundcolor = mygreen!20,
+	topline = false,
+	bottomline = false,
+	rightline = false,
+	innertopmargin = \topskip
+}
+\mdfdefinestyle{gris}{
+	linecolor = gray,
+	linewidth = 2pt,
+	frametitlerule = true,
+	frametitlebackgroundcolor = gray!20,
+	topline = false,
+	bottomline = false,
+	rightline = false,
+	innertopmargin = \topskip
+}
+\mdfdefinestyle{solution}{
+	linecolor = gray,
+	linewidth = 2pt,
+	frametitlerule = false,
+	topline = false,
+	bottomline = false,
+	rightline = false,
+	leftline = true,
+	innertopmargin = \topskip
+}
+% Definición de los entornos de teoremas
+\mdtheorem[style = azul]{axiom}{Axioma}[section]
+\mdtheorem[style = morado]{theorem}{Teorema}[section]
+\mdtheorem[style = morado]{proposition}[theorem]{Proposición}
+\mdtheorem[style = morado]{lemma}[theorem]{Lema}
+\mdtheorem[style = cian]{definition}{Definición}[section]
+\mdtheorem[style = verde]{coll}[theorem]{Corolario}
+% Definición de estilos para cajas
+\tcbset{
+	breakable,
+	enhanced,
+	sharp corners,
+	boxsep=1pt,
+	attach boxed title to top left={yshift=-\tcboxedtitleheight,  yshifttext=-.75\baselineskip},
+	boxed title style={boxsep=1pt,sharp corners},
+	fonttitle=\bfseries\sffamily,
+	%drop lifted shadow
+}
+% Definición de cajas
+\newtcolorbox{remark}[1][]{
+	title={\scalebox{1.75}{\raisebox{-.25ex}{\ding{43}}}~Observación},
+	colframe=black!10!white,
+	colback=black!10!white,
+	coltitle=black,
+	fontupper=\sffamily,
+	boxed title style={colback=black!10!white},
+	boxed title style={boxsep=1ex,sharp corners},%%
+	overlay unbroken and first={ \node[below right,font=\normalsize,color=red,text width=.8\linewidth] at (title.north east) {#1};
+	}
+}
+\newtcolorbox{note}[1][]{
+	title={\scalebox{1.75}{\raisebox{-.25ex}{\ding{45}}}~Nota},
+	colframe=black!10!white,
+	colback=black!10!white,
+	coltitle=black,
+	fontupper=\sffamily,
+	boxed title style={colback=black!10!white},
+	boxed title style={boxsep=1ex,sharp corners},%%
+	overlay unbroken and first={ \node[below right,font=\normalsize,color=red,text width=.8\linewidth] at (title.north east) {#1};
+	}
+}
+% Entornos auxiliares
+\mdtheorem[style = azul, bottomline = true, topline = true, rightline = true]{exercise}{Ejercicios}[section]
+\theoremstyle{remark}
+\mdtheorem[style = gris, frametitlerule = false]{example}{Ejemplo}[section]
+\surroundwithmdframed[style = solution]{proof}
+\newenvironment{solution}{\emph{Soluci\'{o}n:}}{}
+\surroundwithmdframed[style = solution]{solution}
+%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,51 @@
+\input{Preambulo/packages.tex}
+\input{Preambulo/colors.tex}
+\input{Preambulo/theorems.tex}
+\input{Preambulo/listings.tex}
+\input{Preambulo/my_math_commands.tex}
+\input{Preambulo/algorithm.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\titleformat{\section}[frame]
+%{\normalfont}{\filcenter\small
+%	\ SECCIÓN \thesection \ 
+%}
+%{7pt}{\Large\bfseries\filcenter}
+\titleformat{\section}[hang]{\sffamily\Huge\bfseries}{\gdef\sectionlabel{\thesection\ }}{0.5ex}%
+  {\begin{minipage}{0.975\textwidth}%
+  \noindent
+  \color{mypurple}%
+  \llap{\vrule width\textwidth height1ex depth0ex\hskip0.75ex}%
+  \textcolor{mypurple}{\unskip#1}%
+  \hskip0.75ex%
+  \rlap{\vrule width\textwidth height1ex depth0ex}%
+\end{minipage}}[\smallskip]
+
+\titleformat{\subsection}[hang]{\sffamily\huge\bfseries}{\gdef\subsectionlabel{\thesubsection\ }}{0.5ex}%
+  {\noindent%
+  \color{mypurple}%
+  \raisebox{0.222ex}{\hbox to 0.975\textwidth{%
+  \vrule width2ex height1ex depth0ex\hskip0.5ex%
+  \raisebox{-0.222ex}{\textcolor{mypurple}{#1}}%
+  \hskip0.75ex%
+  \leaders\vrule height1ex depth0ex\hfil}}}[\smallskip]
+
+\titleformat{\subsubsection}[hang]{\sffamily\Large\bfseries}{\gdef\subsubsectionlabel{\thesubsubsection\ }}{0.5ex}%
+  {\noindent%
+  \color{mypurple}%
+  \raisebox{0.222ex}{\hbox to 0.975\textwidth{%
+  \vrule width2ex height1ex depth0ex\hskip0.5ex%
+  \raisebox{-0.222ex}{\textcolor{mypurple}{#1}}%
+  \hskip0.75ex%
+  \leaders\vrule height1ex depth0ex\hfil}}}[\smallskip]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{colorlinks = true, linkcolor = myred}
+%\pagestyle{fancy}
+%\headheight 37pt
+\lhead{\course}
+\headsep 1.2em
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\course{Paradigmas de Programación}
+\newcommand\hwname{Apuntes}
+\renewcommand{\familydefault}{\sfdefault}
+\author{Omar Porfirio García}

@@ -1,0 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%
+% Estilo del entorno listings para insertar código fuente
+\lstdefinestyle{mystyle}{
+	backgroundcolor = \color{gray!20},	            % Color de fondo
+	commentstyle = \color{myblue},					% Color de los comentarios
+	keywordstyle = \color{mypurple},				% Color de las palabras reservadas
+	stringstyle = \color{myred}\itshape,			% Color de las cadenas de caracteres
+	basicstyle =\ttfamily,			                % Formato del texto
+	breakatwhitespace = false,				
+	breaklines = true								% Cambiar de línea
+	keepspaces = true,							    % Mantener los espacios del editor en el pdf
+	numbers = left,								    % Posición de los números de línea
+	numbersep = 5pt,								% Separación de los números de línea
+	numberstyle = \color{gray},					    % Color de los números de línea
+	showspaces = false,							        % Mostrar los espacios
+	showstringspaces = false,						% Mostrar los espacios en las cadenas de caracteres
+	showtabs = false,								% Mostrar las tabulaciones
+	tabsize = 3,									% Tamaño de las tabulaciones
+	frame = lt,                                     % Tipo de margen
+	captionpos = t							    	% Posición del título del listing
+}
+\renewcommand{\lstlistingname}{Código}		% "listing" ---> Nuevo nombre
+\renewcommand{\lstlistlistingname}{Lista de prácticas}	% "List of listings" ---> Nuevo nombre
+%%%%%%%%%%%%%%%%%%%%%%

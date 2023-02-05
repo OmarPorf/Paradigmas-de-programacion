@@ -1,0 +1,43 @@
+\input{preambulo.tex}
+\begin{document}
+	\lstset{style = mystyle}
+	\begin{titlepage}
+		\centering
+		
+		{\bfseries\LARGE Instituto Politécnico Nacional\par}
+		
+		{\bfseries\Large Escuela Superior de Física y Matemáticas\par}
+		
+		{\bfseries\Large Licenciatura en Matemática Algorítmica\par}
+		\vspace{0.5cm}
+		{
+			\begin{figure}[h]
+				\begin{center}
+					\includegraphics[width=2.2cm]{Images/Escudos/ESCUDO_ESFM.png}\includegraphics[width=4cm]{Images/Escudos/ipn2.png}\par
+				\end{center}
+			\end{figure}
+		}
+		\vspace{1cm}
+		{\Huge \hwname\par}
+		\vspace{1.5cm}
+		{\Large Autor:\par}
+		{\Large Omar Porfirio García\par}
+		\vspace{1cm}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{Images/Escudos/Python.pdf}
+		\end{figure}
+	\end{titlepage}
+	\tableofcontents		% Lista de contenidos (capítulos, secciones, subsecciones)
+	\lstlistoflistings		% Lista de códigos fuente
+	%\listofalgorithms		% Lista de algoritmos en pseudocódigo
+	%\listoffigures			% Lista de figuras e imágenes
+	%\listoftheorems		
+	\newpage
+	\input{Secciones/Python/Bases}
+	\newpage
+	\section{Paradigmas de programación}
+	\input{Secciones/Paradigmas/Programación orientada a objetos}
+	\newpage
+	\input{Prácticas}
+\end{document}

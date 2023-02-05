@@ -1,0 +1,260 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ds}{\displaystyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Conjuntos numéricos
+\newcommand{\cmath}[1][]{\mathbb{C}^{#1}}
+\newcommand{\rmath}[1][]{\mathbb{R}^{#1}}
+\newcommand{\qmath}[1][]{\mathbb{Q}^{#1}}
+\newcommand{\irrmath}[1][]{\mathbb{I}^{#1}}
+\newcommand{\zmath}[1][]{\mathbb{Z}^{#1}}
+\newcommand{\nmath}[1][]{\mathbb{N}^{#1}}
+\newcommand{\pmath}[1][]{\mathbb{P}^{#1}}
+\newcommand{\fmath}[1][]{\mathbb{F}^{#1}}
+\newcommand{\hmath}[1][]{\mathbb{H}^{#1}}
+\newcommand{\umath}[1][]{\mathbb{U}^{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Delimitadores
+\newcommand{\pa}[1]{\left( #1 \right)}
+\newcommand{\bracket}[1]{\left[ #1 \right]}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+\newcommand{\inprod}[1]{\left\langle #1 \right\rangle}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\upcor}[1]{\left\ulcorner #1 \right\urcorner}
+\newcommand{\lowcor}[1]{\left\llcorner #1 \right\lrcorner}
+\newcommand{\lopen}[1]{\left( #1 \right]}
+\newcommand{\ropen}[1]{\left[ #1 \right)}
+\newcommand{\Lopen}[1]{\left] #1 \right]}
+\newcommand{\Ropen}[1]{\left[ #1 \right[}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% funciones estándar
+\newcommandx{\minf}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0}}{
+		\inf_{#3}\left( #2 \right)
+	}{
+		\inf_{#3}{#2} 
+	}
+}
+\newcommandx{\msup}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\sup_{#3}\left( #2 \right)
+	}{
+		\sup_{#3}{#2}
+	}
+}
+\newcommandx{\msin}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\sin^{#3}\left( #2 \right)
+	}{
+		\sin^{#3}{#2}
+	}
+}
+\newcommandx{\mcos}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\cos^{#3}\left( #2 \right)
+	}{
+		\cos^{#3}{#2}
+	}
+}
+\newcommandx{\mtan}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\tan^{#3}\left( #2 \right)
+	}{
+		\tan^{#3}{#2}
+	}
+}
+\newcommandx{\msec}[3][1 = 0, 3 = { }]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\sec^{#3}\left( #2 \right)
+	}{
+		\sec^{#3}{#2}
+	}
+}
+\newcommandx{\mcsc}[3][1 = 0, 3 = { }]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\csc^{#3}\left( #2 \right)
+	}{
+		\csc^{#3}{#2}
+	}
+}
+\newcommandx{\mcot}[3][1 = 0, 3 = { }]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\cot^{#3}\left( #2 \right)
+	}{
+		\cot^{#3}{#2}
+	}
+}
+\newcommandx{\marcsin}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\arcsin^{#3}\left( #2 \right)
+	}{
+		\arcsin^{#3}{#2}
+	}
+}
+\newcommandx{\marccos}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\arccos^{#3}\left( #2 \right)
+	}{
+		\arccos^{#3}{#2}
+	}
+}
+\newcommandx{\marctan}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\arctan^{#3}\left( #2 \right)
+	}{
+		\arctan^{#3}{#2}
+	}
+}
+\newcommandx{\marcsec}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\operatorname{arcsec}^{#3}\left( #2 \right)
+	}{
+		\operatorname{arcsec}^{#3}{#2}
+	}
+}
+\newcommandx{\marccsc}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\operatorname{arccsc}^{#3}\left( #2 \right)
+	}{
+		\operatorname{arccsc}^{#3}{#2}
+	}
+}
+\newcommandx{\marccot}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\operatorname{arccot}^{#3}\left( #2 \right)
+	}{
+		\operatorname{arccot}^{#3}{#2}
+	}
+}
+\newcommand{\marg}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\arg\left( #2 \right)}{\arg{#2}}
+}
+\newcommandx{\mdeg}[3][1 = 0, 3 = { }]{
+	\ifthenelse{ \equal{#1}{0}}{\deg_{#3}\left( #2 \right)}{\deg_{#3}{#2}}
+}
+\newcommandx{\mdet}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{\det_{#3}\left( #2 \right)}{\det_{#3}{#2}}
+}
+\newcommand{\mdim}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\dim\left( #2 \right)}{\dim{#2}}
+}
+\newcommand{\mexp}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\exp\left( #2 \right)}{\exp{#2}}
+}
+\DeclareMathOperator*{\mcd}{mcd}
+\newcommandx{\mmcd}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{\mcd_{#3}\left( #2 \right)}{\mcd_{#3}{#2}}
+}
+\newcommand{\mln}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\ln\left( #2 \right)}{\ln{#2}}
+}
+\newcommandx{\mlog}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{\log_{#3}\left( #2 \right)}{\log_{#3}{#2}}
+}
+\newcommandx{\mmax}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{\max_{#3}\left( #2 \right)}{\max_{#3}{#2}}
+}
+\newcommandx{\mmin}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{\min_{#3}\left( #2 \right)}{\min_{#3}{#2}}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Otras funciones
+\newcommand{\mpow}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\mathfrak{P}\left( #2 \right)}{\mathfrak{P}{#2}}
+}
+\newcommand{\mnuc}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\operatorname{N}\left( #2 \right)}{\operatorname{N}{#2}}
+}
+\newcommand{\mgen}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\operatorname{gen}\left( #2 \right)}{\operatorname{gen}{#2}}
+}
+\newcommand{\mtr}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\operatorname{tr}\left( #2 \right)}{\operatorname{tr}{#2}}
+}
+\newcommand{\mdom}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\operatorname{Dom}\left( #2 \right)}{\operatorname{Dom}{#2}}
+}
+\newcommand{\mran}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\operatorname{Ran}\left( #2 \right)}{\operatorname{Ran}{#2}}
+}
+\newcommand{\mim}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\operatorname{Im}\left( #2 \right)}{\operatorname{Im}{#2}}
+}
+\newcommand{\ipart}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\Im\left( #2 \right)}{\Im{#2}}
+}
+\newcommand{\rpart}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\Re\left( #2 \right)}{\Re{#2}}
+}
+\newcommand{\mprob}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\operatorname{P}\left( #2 \right)}{\operatorname{P}{#2}}
+}
+\newcommand{\mmean}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\operatorname{E}\left( #2 \right)}{\operatorname{E}{#2}}
+}
+\newcommand{\mvar}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\operatorname{V}\left( #2 \right)}{\operatorname{V}{#2}}
+}
+\DeclareMathOperator*{\mcm}{mcm}
+\newcommandx{\mmcm}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{\mcm_{#3}\left( #2 \right)}{\mcm_{#3}{#2}}
+}
+\newcommandx{\mgrad}[3][1 = 0, 3 = { }]{
+	\ifthenelse{ \equal{#1}{0} }{\operatorname{grad}_{#3}\left( #2 \right)}{\operatorname{grad}_{#3}{#2}}
+}
+\newcommand{\mleng}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\ell\left( #2 \right)}{\ell{#2}}
+}
+\DeclareMathOperator*{\inte}{int}
+\newcommandx{\minte}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{\inte_{#3}\left( #2 \right)}{\inte_{#3}{#2}}
+} 
+\DeclareMathOperator*{\exte}{ext}
+\newcommandx{\mexte}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{\exte_{#3}\left( #2 \right)}{\exte_{#3}{#2}}
+}
+\DeclareMathOperator*{\fr}{Fr}
+\newcommandx{\mfr}[3][1 = 0, 3 = { }, usedefault]{
+	\ifthenelse{ \equal{#1}{0} }{\fr_{#3}\left(#2\right)}{\fr_{#3}{#2}}
+}
+\newcommand{\mtrans}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\left( #2 \right)^{\mathsf{T}}}{{#2}^{\mathsf{T}}}
+}
+\newcommand{\mcomp}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\left( #2 \right)^{\mathsf{C}}}{{#2}^{\mathsf{C}}}
+}
+\newcommand{\minv}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\left( #2 \right)^{-1}}{{#2}^{-1}}
+}
+\newcommand{\mperp}[2][0]{
+	\ifthenelse{ \equal{#1}{0} }{\left( #2 \right)^{\perp}}{{#2}^{\perp}}
+}
+\newcommand{\mproj}[2]{\operatorname{proj}_{#2}\left(#1\right)}
+\newcommandx{\meval}[3][2 = { }, 3 = { }]{
+	\left[ #1 \right]_{#2}^{#3}
+}
+\newcommandx{\mint}[5][1 = 0, 4 = { }, 5 = { }]{
+	\ifthenelse{ \equal{#1}{0} }{
+		\int_{#4}^{#5}\left( #2 \right)d{#3}
+	}{
+		\int_{#4}^{#5}{#2}\ d{#3}
+	}
+}
+\newcommand{\mmatrix}[2]{\mathcal{M}_{#2}\left( #1 \right)}
+\newcommand{\mlin}[1]{\mathcal{L}\left( #1 \right)}
+\newcommand{\mfunc}[1]{\mathcal{F}\left( #1 \right)}
+\newcommand{\mdis}[1]{\operatorname{d}\left( #1 \right)}
+\newcommand{\msinf}[1]{\operatorname{\underline{S}}\left( #1 \right)}
+\newcommand{\mssup}[1]{\operatorname{\overline{S}}\left( #1 \right)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Otros símbolos
+\newcommand{\void}{\varnothing}
+\newcommand{\true}{\top}
+\newcommand{\false}{\bot}
+\newcommand{\ivec}{\hat{\imath}}
+\newcommand{\jvec}{\hat{\jmath}}
+\newcommand{\kvec}{\hat{k}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,155 @@
+\subsection{Programación orientada a objetos}\label{subsec: poo}
+	\subsubsection{Clases y objetos}
+	Python es un lenguaje de programación orientado a objetos. Hay otros lenguajes que son procedimentales que se enfocan en funciones, pero en Python el enfoque es en objetos.\par 
+	Un \emph{objeto} es una colección de \emph{métodos} (funciones) que actúan sobre datos (variables) los cuales también son objetos. El esqueleto de estos objetos es una \emph{clase}.\par 
+	Consideramos una \emph{clase} como un boceto o prototipo que tiene todos los detalles sobre un objeto. Si el programa fuera un auto, una clase contendría todos los detalles del diseño, el chasís, dónde están las llantas y de que está hecho el parabrisas, etc. Sería imposible construir un auto sin una clase definiéndolo. El auto es el objeto.\par 
+	Dado que muchos autos pueden ser construidos  basandose en el prototipo, podemos crear muchos objetos de una clase. También podemos llamarle a un objeto como la \emph{instancia} de una clase, y el proceso por el cual es creado el objeto se denomina \emph{instanciación}.
+	\subsubsection{Definición y creación de una clase}
+	Las clases se definen usando la palabra reservada \emph{class}. Tal como una función, una clase debería llevar un docstring para explicar de manera general lo que hace la clase. 
+	\begin{lstlisting}[language = {python}]
+class ClaseVacia:
+    """Esta es una clase vacia"""
+    pass
+	\end{lstlisting}
+	Cuando se crea una nueva clase, se crea un nuevo \emph{namespace} local que define todos los atributos. Los \emph{atributos} pueden ser funciones y estructuras de datos. En este, se contendrán atribtos especiales que inician con doble guión bajo, como \emph{\textunderscore\textunderscore doc\textunderscore\textunderscore}.\par 
+	Cuando se define una clase, se crea un nuevo objeto de la clase con el mismo nombre. Este nuevo objeto de la clase es lo que usamos para acceder a los diferentes atributos y para instanciar los nuevos objetos de nuestra nueva clase.
+	\begin{lstlisting}[language = {python}]
+class MiClase:
+    """Esta clase imprime un texto con un nombre"""
+    name = str(input("Ingrese su nombre: "))
+    def saludo(name):
+        print("Hola", name)
+        
+    print(MiClase.name)
+    print(MiClase.saludo(MiClase.name))
+    print(MiClase.__doc__)
+	\end{lstlisting}
+	y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+Ingrese su nombre: _Steve_
+Steve
+Hola Steve
+None
+Esta clase imprime un texto con un nombre
+	\end{lstlisting}
+	Podemos usar estos objetos para intanciar nuevos objetos de una clase usando algo similar a una función.
+	\begin{lstlisting}[language = {python}]
+class MiClase:
+    """Esta clase imprime un texto con un nombre"""
+    name = str(input("Ingrese su nombre: "))
+    def saludo(name):
+        print("Hola", name)
+MiObjeto = MiClase()    # Nuevo objeto de la clase MiClase
+print(MiClase.saludo)
+print(Miobjeto.saludo)
+MiObjeto.saludo()
+	\end{lstlisting}
+	y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+Ingrese su nombre: _Steve_
+<function MiClase.saludo at 0x7f318f3aa6a8>
+<bound method MiClase.saludo of <__main__.MiClase object at 0x7f31910c3a90>>
+Hola <__main__.MiClase object at 0x7f31910c3a90>
+	\end{lstlisting}
+	El parámetro \emph{name} está dentro de la definición de la función de la clase, pero se llama al método usando la sentencia \emph{MiObjeto.saludo()} sin especificar ningún argumento y aún así funciona. Esto es porque cuando un objeto llama a un método definido dentro de él, el objeto se pasa a sí mismo como primer argumento. Por lo tanto, en este caso, \emph{MiObjeto.saludo()} se traduce a \emph{MiClase.saludo(MiObjeto)}.\par
+	Por lo general, cuando se llama a un método con \emph{n} argumentos, es lo mismo que llamar a la función correspondiente usando una lista de argumentos creados cuando el objeto del método se inserta antes del primer argumento. Como resultado, el primer argumento de una función en una clase debe ser el objeto mismo.
+	\subsubsection{Constructores}
+	En Python, la función \emph{\textunderscore\textunderscore init\textunderscore\textunderscore} es especial porque se llama cuando un nuevo objeto de la clase es instanciado. Este objeto también se llama \emph{constructor} porque se usa para inicializar todas las variables.
+	\begin{lstlisting}[language = {python}]
+class Complejos:
+    """Esta clase imprime complejos"""
+    def __init__(self, x = 0, y = 0):   
+    #            ^-- se pasa primero el objeto mismo
+        self.re = x # parte real
+        self.im = y # parte imaginaria
+    def ObtenComplejo(self):
+        print(f"Numero: {self.re} + {self.im}j")
+    
+num = Complejos(2, 3)   # creacion de un nuevo objeto Complejos
+num.ObtenComplejo() # llamado de la funcion ObtenComplejo
+	\end{lstlisting} 
+	y devuelve
+	\begin{lstlisting}[language = {[latex]tex}]
+Numero: 2 + 3j
+	\end{lstlisting}
+	No es necesario que para pasar el objeto mismo se use la palabra \emph{self}, puede ser cualquier otra palabra.
+	\begin{lstlisting}[language = {python}]
+class Complejos:
+    """Esta clase imprime complejos"""
+    def __init__(mi, x = 0, y = 0):   
+    #            ^-- el objeto mismo
+        mi.re = x # parte real
+        mi.im = y # parte imaginaria
+    def ObtenComplejo(mi):
+        print(f"Numero: {mi.re} + {mi.im}j")
+	\end{lstlisting} 
+	Para eliminar los atributos de un objeto o incluso el objeto mismo usamos \emph{del}.
+	\begin{lstlisting}[language = {python}]
+class Complejos:
+    """Esta clase imprime complejos"""
+    def __init__(self, x = 0, y = 0):   
+    #            ^-- se pasa primero el objeto mismo
+        self.re = x # parte real
+        self.im = y # parte imaginaria
+    def ObtenComplejo(self):
+        print(f"Numero: {self.re} + {self.im}j")
+    
+num = Complejos(2, 3)   # creacion de un nuevo objeto Complejos
+num.ObtenComplejo() # llamado de la funcion ObtenComplejo
+del Complejos.ObtenComplejo # eliminacion de la funcion ObtenComplejo
+	\end{lstlisting}
+	Después de esto el atributo \emph{ObtenComplejo} no podrá ser usado y devolverá error si se intenta utilizar. Note que, sin embargo, dado que una nueva instancia es creada en memoria cuando una nueva instanciación del objeto se crea, el objeto puede seguir existiendo en memoria incluso cuando se haya eliminado hasta que se destruya automáticamente.\par 
+	En una clase también podemos incorporar variables que pueden ser compartidas por cada uno de los objetos. Por ejemplo:
+    \begin{lstlisting}[language = {python}]
+class Perro:
+    """ Clase Perro """
+    var1 = "Ladra"
+    var2 = "Salta"
+    
+    def __init__(self, nombre: str = "Firulais"):
+        self.nombre = nombre
+        
+    def di_tu_nombre(self):
+        print(f"Mi nombre es {self.nombre}")
+    \end{lstlisting}
+    En este ejemplo tenemos las variables \emph{var1} y \emph{var2} las cuales todos los objetos de la clase \emph{Perro} comparten.
+    \subsubsection{Herencia}
+    La \emph{herencia} es una característica de la programación orientada a objetos que permite a una clase \emph{heredar} los métodos y atributos de una \emph{clase madre}. Por consiguiente, el programa será capaz de crear nuevas funcionalidades e incluso sobreescribir las ya existentes sin afectar a la clase madre. En Python se tienen cuatro tipos de herencia: simple, multinivel, jerárquica y herencia múltiple.
+    \paragraph{Herencia simple}. La \emph{herencia simple} es cuando una clase o subclase hereda métodos y atributos de una clase madre. Por ejemplo:
+    \begin{lstlisting}[language = {python}]
+# Clase madre Poligono
+
+class Poligono:
+    """ Clase poligono """
+    def __init__(self, num_lados: int = 3):
+        if num_lados >= 3:
+            self.num = num_lados
+        else:
+            self.num = 3
+        self.lados = [0 for i in range(num_lados)]
+        
+    def ingrese_lados(self):
+        self.lados = [float(input(f"Ingrese el lado {i + 1}: ")) for i in range(self.num)]
+        
+    def perimetro(self):
+        p: float = 0.0
+        for i in self.lados:
+            p += i
+        return p
+        
+# Clase hija triangulo
+
+class Triangulo(Poligono):
+    def __init__(self):
+        super().__init__(3)
+        
+    def area(self):
+        s: float = 0.0
+        area: float = 0.0
+        a, b, c = self.lados
+        s = (a + b + c) / 2
+        area = (s * (s - a) * (s - b) * (s - c)) ** 0.5
+        return area
+    \end{lstlisting}
+    La clase madre sería la clase \emph{Poligono} la cual le va a heredar todos sus atributos y métodos a la clase hija \emph{Triangulo}, es decir, la clase \emph{Triangulo} también tiene los atributos \emph{num} y \emph{lados} y los métodos \emph{ingrese\textunderscore lados} y \emph{perimetro}. Sin embargo, esta también tiene un atributo propio que es \emph{area} que no tiene la clase madre.
+    \paragraph{Herencia múltiple.} En la \emph{herencia múltiple}, una subclase hereda métodos y atributos de varias otras clases. 

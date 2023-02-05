@@ -1,0 +1,798 @@
+\section{Más sobre Python}
+	\subsection{Más en tipos de datos}
+    \subsubsection{\texttt{int}}\label{subsubsec: int}
+    En Python los \emph{enteros} son cualquier número positivo o negativo sin parte decimal. Los enteros son objetos de la clase \emph{int} y no pueden tener ceros a la izquierda.
+    \begin{lstlisting}[language = {python}]
+x = 012345689   # Error de sintaxis
+    \end{lstlisting}
+    Usamos la función \emph{int} para convertir un objeto a un entero.
+    \begin{lstlisting}[language = {[latex]tex}]
+x = 5.5
+print(type(x))
+x = int(x)
+print(type(x))
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+<class 'float'>
+<class 'int'>
+    \end{lstlisting}
+    Los enteros pueden ser valores binarios, octales y hexadecimales.
+    \paragraph{Binario} Un número binario en Python se representa usando el prefijo \emph{0b} con ocho dígitos en una combinación de 0 y 1.
+    \begin{lstlisting}[language={python}]
+x = 0b11011000  # 11011000_{2} = 216_{10}
+# x = 0b_1101_1000 es equivalente, podemos dividir el numero con guines bajos sin problema
+print(x)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+216
+    \end{lstlisting}
+    \paragraph{Octal} Un número octal en Python se representa usando el prefijo \emph{0o} o \emph{0O}.
+    \begin{lstlisting}[language={python}]
+x = 0o12    # 12_{8} = 10_{10}
+print(x)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+10
+    \end{lstlisting}
+    \paragraph{Hexadecimal} Un número hexadecimal en Python se representa usando el prefijo \emph{0x} o \emph{0X}.
+    \begin{lstlisting}[language={python}]
+x = 0X12    # 12_{16} = 18_{10}
+print(x)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+18
+    \end{lstlisting}
+    \subsubsection{\texttt{float}}\label{subsubsec: float}
+    Los floats tienen un tamaño máximo que depende del sistema de cada uno. El float que sobrepasa su tamaño máximo es referido como \emph{inf}, \emph{Inf}, \emph{INFINITY} o \emph{infinity}. 
+    \begin{lstlisting}[language={python}]
+f = 2e400
+print(f)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+inf
+    \end{lstlisting}
+    La notación científica es usada para representar de manera más corta los floats que tienen muchos dígitos.
+    \begin{lstlisting}[language={python}]
+f = 1e3
+g = 3.4556789e2
+print(f)
+print(g)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+1000.0
+345.56789
+    \end{lstlisting}
+    Usamos la función \emph{float} para convertir un objeto a float.
+    \begin{lstlisting}[language = {python}]
+x = "7.89"
+print(type(x))
+x = float(x)
+print(type(x))
+    \end{lstlisting}
+    Y devuelve 
+    \begin{lstlisting}[language = {[latex]tex}]
+<class 'str'>
+<class 'float'>
+    \end{lstlisting}
+    \subsubsection{\texttt{complex}}\label{subsubsec: complex}
+    Un número \emph{complejo} es un número con una parte real y una imaginaria.
+    \begin{lstlisting}
+x = 5 + 9j # j es la unidad imaginaria, 5 su parte real y 9 su parte imaginaria
+print(x)
+print(type(x))
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+(5+9j)
+<class 'complex'>
+    \end{lstlisting}
+    \subsubsection{Strings}\label{subsubsec: strings}
+    En Python, el objeto \emph{string} es un tipo de dato secuencial inmutable de caracteres Unicode dentro de comillas simples, dobles o triples.
+    \begin{lstlisting}[language = {python}]
+'Esto es un string en Python'   # String entre comillas simples
+"Esto es un string en Python"   # String entre comillas dobles
+'''Esto es un string en Python'''  # String entre comillas triples
+"""Esto es un string en Python"""   # String entre triples comillas dobles
+    \end{lstlisting}
+    Los string multi-línea deben ser encerrados entre comillas triples.
+    \begin{lstlisting}[language = {python}]
+str1 = '''Este es
+el primer
+string multi-linea.
+'''
+print(str1)
+
+str2 = """Este es
+el segundo
+string multi-linea.
+"""
+print(str2)
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+Este es
+el primer
+string multi-linea.
+
+Este es
+el segundo
+string multi-linea.
+    \end{lstlisting}
+    Si requerimos que una parte del string esté entre comillas simples, el string completo debe estar entre comillas dobles y viceversa.
+    \begin{lstlisting}[language = {python}]
+str1 = 'Bienvenido a "Paradigmas de programacion" en la LMA'
+print(str1)
+
+str2 = "Bienvenido a 'Paradigmas de programacion' en la LMA"
+print(str2)
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+Bienvenido a "Paradigmas de programacion" en la LMA
+Bienvenido a 'Paradigmas de programacion' en la LMA
+    \end{lstlisting}
+    Usamos la función \emph{len} para saber la longitud del string.
+    \begin{lstlisting}[language = {python}]
+greet = 'Hello'
+len(greet)
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+5
+    \end{lstlisting}
+    Una secuencia está definida por una colección ordenada de elementos. Por lo tanto, un string es una colección ordenada de caracteres. La secuencia utiliza un índice, iniciando desde 0, para localizar cada elemento (o caracter en este caso).
+    \begin{lstlisting}[language = {python}]
+greet = 'Hello'
+print(greet[0])
+print(greet[1])
+print(greet[2])
+print(greet[3])
+print(greet[4])
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+H
+e
+l
+l
+o
+    \end{lstlisting}
+    Un string es un objeto inmutable, es decir, no puede ser modificado.\par 
+    Todos los string son objetos de la clase \emph{str}. Usamos la función \emph{str} para convertir un objeto a un string.
+    \begin{lstlisting}[language = {python}]
+a = 100
+print(type(a))
+a = str(a)
+print(type(a))
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+<class 'int'>
+<class 'str'>
+    \end{lstlisting}
+    \paragraph{Secuencias de escape} Un \emph{caracter de escape} es usado para invocar una implementación alternativa del caracter siguiente en la secuencia. En Python, diagonal invertida (\textbackslash) es usada como un caracter de escape. 
+    \begin{lstlisting}[language = {python}]
+str1 = "Bienvenido a \"Paradigmas de programacion\" en la LMA"
+print(str1)
+str2 = 'Bienvenido a \'Paradigmas de programacion\' en la LMA'
+print(str2)
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+Bienvenido a "Paradigmas de programacion" en la LMA
+Bienvenido a 'Paradigmas de programacion' en la LMA
+    \end{lstlisting}
+    Usamos \emph{r} o \emph{R} para ignorar las secuencias de escape en un string.
+    \begin{lstlisting}[language = {python}]
+str = r'Bienvenido a \'Paradigmas de programacion\' en la LMA'
+print(str)
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+Bienvenido a \'Paradigmas de programacion\' en la LMA
+    \end{lstlisting}
+    Usamos \emph{\textbackslash\textbackslash} para el caracter de diagonal invertida.
+    \begin{lstlisting}[language = {python}]
+print("Hello\\Hi")
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+Hello\Hi
+    \end{lstlisting}
+    Usamos \emph{\textbackslash b} para hacer un backspace.
+    \begin{lstlisting}[language = {python}]
+print("ab\bc")
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+ac
+    \end{lstlisting}
+    Usamos \emph{\textbackslash n} para hacer un cambio de línea.
+    \begin{lstlisting}[language = {python}]
+print("Hola\nMundo")
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+Hola
+Mundo
+    \end{lstlisting}
+    Usamos \emph{\textbackslash nnn} para hacer una notación octal, con \emph{n} un número entre 0 y 7.
+    \begin{lstlisting}[language = {python}]
+print("\101")
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+A
+    \end{lstlisting}
+    Usamos \emph{\textbackslash t} para hacer una tabulación.
+    \begin{lstlisting}[language = {python}]
+print("Hello\tPython")
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+Hello	Python
+    \end{lstlisting}
+    Usamos \emph{\textbackslash xnn} para hacer una notación hexadecimal, con \emph{n} un número entre 0 y 9 o entre A y F.
+    \begin{lstlisting}[language = {python}]
+print("\x48\x69")
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+Hi
+    \end{lstlisting}
+    Usamos \emph{f} y \emph{\{\}} para sustituir el valor de lo que esté entre llaves y agregarlo al string.
+    \begin{lstlisting}[language = {python}]
+nombre = "Steve"
+edad = 25
+str = f"{nombre} tiene {edad}"
+print(str)
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+Steve tiene 25
+    \end{lstlisting}
+    \paragraph{Métodos de strings}\label{paragraph: metodos_subcadenas}
+	Dentro del mundo de la programación se puede volver necesario manipular cadenas de caracteres o \emph{strings} y para eso usamos métodos para poder manipularlas.
+	\begin{enumerate}
+	    \item Concatenar\par 
+	    El operador $ + $ une dos cadenas o más en una sola cadena.
+	    \begin{lstlisting}[language={python}]
+sentence = "My " + "grandmother " + "baked " + "today"
+print(sentence)
+    	\end{lstlisting}
+    	Y devuelve
+    	\begin{lstlisting}[language={[latex]tex}]
+My grandmother baked today
+	    \end{lstlisting}
+	    \item Subcadenas\par 
+	    Si tenemos una cadena $ cadena = a_{0}a_{1}a_{2}\ldots a_{n-1} $, una subcadena es $ cadena = a_{k}a_{k+1}\ldots a_{r-1}a_{r} $ con $ 0\leq k\leq r\leq n-1 $.
+	    \begin{enumerate}
+	        \item Subcadena: un solo caracter\par 
+	        Si tenemos la cadena $ cadena = a_{0}a_{1}a_{2}\ldots a_{n-1} $, entonces $ cadena[k] $ devuelve $ a_{k} $.
+	\begin{lstlisting}[language={python}]
+letter = word[3]
+print(letter)
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language={[latex]tex}]
+r
+	\end{lstlisting}
+	Por otro lado, la cadena $cadena[-k]$ devuelve $\sub{a}{n-k}$.
+	\begin{lstlisting}[language={python}]
+letter = word[-3]
+print(letter)
+	\end{lstlisting}
+	Y devuelve
+	\begin{lstlisting}[language={[latex]tex}]
+o
+	\end{lstlisting}
+	\item Subcadena: subcadena de varios caracteres continuos
+	\begin{itemize}
+		\item \texttt{cadena[k:r]}\\
+		Si tenemos la cadena $ cadena = a_{0}a_{1}a_{2}\ldots a_{n-1} $, entonces $ cadena[k:r] $ devuelve $ a_{k}a_{k+1}\ldots a_{r-1} $. 
+		Si queremos 
+		\begin{lstlisting}[language={python}]
+letter = word[1:3]
+print(letter)
+		\end{lstlisting}
+		Y devuelve
+		\begin{lstlisting}[language={[latex]tex}]
+or
+		\end{lstlisting}
+		\item \texttt{cadena[:r]}\\
+		Si tenemos la cadena $ cadena = a_{0}a_{1}a_{2}\ldots a_{n-1} $, entonces $ cadena[:r] $ devuelve $ a_{0}a_{1}\ldots a_{r-1} $, es decir $ cadena[:r] = cadena[0:r] $. 
+		Si queremos 
+		\begin{lstlisting}[language={python}]
+letter = word[:3]
+print(letter)
+		\end{lstlisting}
+		Y devuelve
+		\begin{lstlisting}[language={[latex]tex}]
+wor
+		\end{lstlisting}
+		\item \texttt{cadena[k:]}\\
+		Si tenemos la cadena $ cadena = a_{0}a_{1}a_{2}\ldots a_{n-1} $, entonces $ cadena[k:] $ devuelve $ a_{k}a_{k+1}\ldots a_{n-1} $, es decir $ cadena[k:] = cadena[k:n] $. 
+		Si queremos 
+		\begin{lstlisting}[language={python}]
+letter = word[1:]
+print(letter)
+		\end{lstlisting}
+		Y devuelve
+		\begin{lstlisting}[language={[latex]tex}]
+ord
+		\end{lstlisting}
+		\item \texttt{cadena[:-r]}\\
+		Si tenemos la cadena $ cadena = a_{0}a_{1}a_{2}\ldots a_{n-1} $, entonces $ cadena[:-r] $ devuelve $ a_{0}a_{1}\ldots a_{n-r-1} $, es decir $ cadena[:-r] = cadena[0:n-r] $. 
+		Si queremos 
+		\begin{lstlisting}[language={python}]
+letter = word[:-1]
+print(letter)
+		\end{lstlisting}
+		Y devuelve
+		\begin{lstlisting}[language={[latex]tex}]
+wor
+		\end{lstlisting}
+		\item \texttt{cadena[-k:]}\\
+		Si tenemos la cadena $ cadena = a_{0}a_{1}a_{2}\ldots a_{n-1} $, entonces $ cadena[-k:] $ devuelve $ a_{n-k}a_{n-k+1}\ldots a_{n-1} $, es decir $ cadena[-k:] = cadena[n-k:n] $. 
+		Si queremos 
+		\begin{lstlisting}[language={python}]
+letter = word[-2:]
+print(letter)
+		\end{lstlisting}
+		Y devuelve
+		\begin{lstlisting}[language={[latex]tex}]
+rd
+		\end{lstlisting}
+	\end{itemize}
+	    \end{enumerate}
+	    \item Partir cadenas\par 
+	    Este método separa la cadena en cada caracter especificado (eliminándolo) y cada subcadena generada la inserta a una lista. Si tenemos la cadena $ cadena = a_{0}\ldots \sub{a}{i}\sub{a}{r}\sub{a}{i+1}\ldots\sub{a}{j}\sub{a}{r}\sub{a}{j+1}\ldots\sub{a}{k}\sub{a}{r}\sub{a}{k+1}\ldots  a_{n-1} $ y tenemos caracteres repetidos dentro de la cadena, tendríamos que:
+	\[ cadena.split("a_{r}")=["a_{0}\ldots \sub{a}{i}","\sub{a}{i+1}\ldots\sub{a}{j}",\ldots, "\sub{a}{k+1}\ldots a_{n-1}"] \]
+	\begin{lstlisting}[language={python}]
+tonguetwister = "Peter Piper picked a peck of pickled peppers"
+splitList = tonguetwister.split(' ')
+print(splitList)
+	\end{lstlisting}
+	y devuelve
+	\begin{lstlisting}[language={[latex]tex}]
+['Peter', 'Piper', 'picked', 'a', 'peck', 'of', 'pickled', 'peppers']
+	\end{lstlisting}
+	\item Contar y reemplazar\par 
+	Para contar ciertos caracteres de una cadena usamos el método \texttt{count}
+	\begin{lstlisting}[language={python}]
+tonguetwister = "Peter Piper picked a peck of pickled peppers"
+print(tonguetwister.count('p'))
+	\end{lstlisting}
+	y devuelve
+	\begin{lstlisting}[language={[latex]tex}]
+7
+	\end{lstlisting}
+	Para reemplazar una cadena dada con alguna otra usamos el método \texttt{replace}
+	\begin{lstlisting}[language={python}]
+tonguetwister = tonguetwister.replace("peppers","potatoes")
+print("tonguetwister")
+	\end{lstlisting}
+	y devuelve
+	\begin{lstlisting}[language={[latex]tex}]
+Peter Piper picked a peck of pickled potatoes
+	\end{lstlisting}
+	\end{enumerate}
+    \subsubsection{Lista}\label{subsubsec: lista}
+    La lista es mutable, es decir que puede ser modificada. 
+    \begin{lstlisting}[language={python}]
+mylist = []   # lista vacia
+print(mylist)
+    
+names = ["Jeff", "Bill", "Steve", "Mohan"]  # lista de strings
+print(names)
+
+item = [1, "Jeff", "Computer", 75.50, True] # lista de diferentes datos
+print(item)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+[]
+['Jeff', 'Bill', 'Steve', 'Mohan']
+[1, 'Jeff', 'Computer', 75.5, True]
+    \end{lstlisting}
+    Una lista puede contener un número ilimitado de datos dependiendo de las limitaciones de la memoria de cada computadora.
+    \begin{lstlisting}[language={python}]
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+    \end{lstlisting}
+    Los elementos de un lista pueden ser accesados usando índices (empezando por cero) entre corchetes. Estos índices van incrementando de uno en uno a medida que avanzamos a lo largo de los elementos.
+    \begin{lstlisting}[language={python}]
+names=["Jeff", "Bill", "Steve", "Mohan"] 
+print(names[0]) # devuelve "Jeff"
+print(names[1]) # devuelve "Bill"
+print(names[2]) # devuelve "Steve"
+print(names[3]) # devuelve "Mohan"
+print(names[4]) # arroja un error en los indices dado que el 4 no existe
+    \end{lstlisting}
+    Además, las listas pueden contener otras listas en su interior como elementos a los que se acceden usando índices.
+    \begin{lstlisting}[language={python}]
+nums=[1, 2, 3, [4, 5, 6, [7, 8, [9]]], 10] 
+print(nums[0]) # devuelve 1
+print(nums[1]) # devuelve 2
+print(nums[3]) # devuelve [4, 5, 6, [7, 8, [9]]]
+print(nums[4]) # devuelve 10
+print(nums[3][0]) # devuelve 4
+print(nums[3][3]) # devuelve [7, 8, [9]]
+print(nums[3][3][0]) # devuelve 7
+print(nums[3][3][2]) # devuelve [9]
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+1
+2
+[4, 5, 6, [7, 8, [9]]]
+10
+4
+[7, 8, [9]]
+7
+[9]
+    \end{lstlisting}
+    Usamos el constructor \emph{list} para converitr otro tipo secuencial como una tupla, conjunto, diccionario o string a una lista.
+    \begin{lstlisting}[language={python}]
+nums = [1, 2, 3, 4]
+print(type(nums))
+
+mylist = list('Hello')
+print(mylist)
+
+nums = list({1 : 'one', 2 : 'two'})
+print(nums)
+
+nums = list((10, 20, 30))
+print(nums)
+
+nums = list({100, 200, 300})
+print(nums)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+<class 'list'>
+['H', 'e', 'l', 'l', 'o']
+[1, 2]
+[10, 20, 30]
+[200, 100, 300]
+    \end{lstlisting}
+    \paragraph{Métodos y operaciones de listas} Para el manejo de listas tenemos varios métodos:
+    \begin{enumerate}
+        \item \texttt{.append} y \texttt{.insert}\par 
+        Usamos el método \emph{append} para añadir un elemento al final de la lista.
+        \begin{lstlisting}[language={python}]
+numbers = [11, 22, 33, 44, 55, 66, 77]
+print(numbers)
+numbers.append(10)
+print(numbers)
+        \end{lstlisting}
+        y devuelve
+        \begin{lstlisting}[language={[latex]tex}]
+[11, 22, 33, 44, 55, 66, 77]
+[11, 22, 33, 44, 55, 66, 77, 10]
+        \end{lstlisting}
+        Sin embargo, si no queremos añadir el elemento al final sino en otro lugar de la lista, entonces usamos el método \emph{insert}. 
+        \begin{lstlisting}[language={python}]
+numbers = [11, 22, 33, 44, 55, 66, 77]
+print(numbers)
+numbers.insert(2, 10)   # 2 es el indice donde queremos agregar el elemento 10
+print(numbers)
+        \end{lstlisting}
+        y devuelve
+        \begin{lstlisting}[language={[latex]tex}]
+[11, 22, 33, 44, 55, 66, 77]
+[11, 22, 10, 33, 44, 55, 66, 77]
+        \end{lstlisting}
+        \item \texttt{.remove} y \texttt{.clear}\par 
+        Usamos el método \emph{remove} para eliminar cualquier elemento de la lista. Si el elemento es repetido, este eliminará solo el elemento con el índice menor.
+        \begin{lstlisting}[language={python}]
+numbers = [11, 22, 33, 44, 55, 66, 77, 37, 77]
+print(numbers)
+numbers.remove(77)
+print(numbers)
+        \end{lstlisting}
+        y devuelve
+        \begin{lstlisting}[language={[latex]tex}]
+[11, 22, 33, 44, 55, 66, 77, 37, 77]
+[11, 22, 33, 44, 55, 66, 37, 77]
+        \end{lstlisting}
+        Si en cambio se quiere eliminar todo el contenido de la lista, usamos el método \emph{clear}.
+        \begin{lstlisting}[language={python}]
+numbers = [11, 22, 33, 44, 55, 66, 77, 37, 77]
+print(numbers)
+numbers.clear()
+print(numbers)
+        \end{lstlisting}
+        y devuelve
+        \begin{lstlisting}[language={[latex]tex}]
+[11, 22, 33, 44, 55, 66, 77, 37, 77]
+[]
+        \end{lstlisting}
+        \item \texttt{.index}, \texttt{in}, \texttt{not in} y \texttt{.count}\par 
+        Si queremos saber el índice de un elemento de la lista, usamos el método \emph{index}.
+        \begin{lstlisting}[language={python}]
+numbers = [11, 22, 33, 44, 55, 66, 77]
+print(numbers)
+print(numbers.index(44))
+        \end{lstlisting}
+        y devuelve
+        \begin{lstlisting}[language={[latex]tex}]
+[11, 22, 33, 44, 55, 66, 77]
+3
+        \end{lstlisting}
+        Sin embargo, si únicamente se quiere saber si un elemento está en la lista, usamos \emph{in} el cual nos devuelve un valor booleano.
+        \begin{lstlisting}[language={python}]
+numbers = [11, 22, 33, 44, 55, 66, 77]
+print(numbers)
+print(44 in numbers) 
+print(88 in numbers)
+        \end{lstlisting}
+        y devuelve
+        \begin{lstlisting}[language={[latex]tex}]
+[11, 22, 33, 44, 55, 66, 77]
+True
+False
+        \end{lstlisting}
+        Usar \emph{not in} es el negado de \emph{in}.
+        Para saber cuantas veces un elemento está en la lista, usamos el método \emph{count}.
+        \begin{lstlisting}[language={python}]
+numbers = [11, 22, 33, 44, 55, 22, 66, 77, 22]
+print(numbers)
+print(numbers.count(22)) 
+        \end{lstlisting}
+        y devuelve
+        \begin{lstlisting}[language={[latex]tex}]
+[11, 22, 33, 44, 55, 22, 66, 77, 22]
+3
+        \end{lstlisting}
+        \item Suma y producto escalar\par 
+        Podemos \emph{sumar} dos listas lo cual es unir ambas listas en una sola
+        \begin{lstlisting}[language={python}]
+L1 = [1, 2, 3]
+L2 = [4, 5, 6]
+print(L1, L2)
+print(L1 + L2)
+        \end{lstlisting}
+        y devuelve
+        \begin{lstlisting}[language={[latex]tex}]
+[1, 2, 3] [4, 5, 6]
+[1, 2, 3, 4, 5, 6]
+        \end{lstlisting}
+        También podemos \emph{multiplicar} una lista por un entero lo cual es sumar esa lista tantas veces.
+        \begin{lstlisting}[language={python}]
+L = [1, 2, 3]
+print(L * 3)    # L * 3 = L + L + L
+        \end{lstlisting}
+        y devuelve
+        \begin{lstlisting}[language={[latex]tex}]
+[1, 2, 3, 1, 2, 3, 1, 2, 3]
+        \end{lstlisting}
+        \item Rangos\par 
+        Podemos seleccionar un rango de elementos de una lista al igual que las subcadenas de \nameref{paragraph: metodos_subcadenas}.
+        \begin{lstlisting}[language={python}]
+L = [1, 2, 3, 4, 5, 6]
+print(L[1 :])
+print(L[ : 3])
+print(L[1 : 4])
+print(L[: -2])
+print(L[-5 :])
+print(L[-5 : -3])
+        \end{lstlisting}
+        y devuelve
+        \begin{lstlisting}[language={[latex]tex}]
+[2, 3, 4, 5, 6]
+[1, 2, 3]
+[2, 3, 4]
+[1, 2, 3, 4]
+[2, 3, 4, 5, 6]
+[2, 3]
+        \end{lstlisting}
+    \end{enumerate}
+    \subsubsection{Tupla}\label{subsubsec: tupla}
+    Las \emph{tuplas} son un tipo de lista las cuales después de ser definidas no pueden ser modificadas, ya sea intencional o accidentalmente. Debido a esto, no podemos agregar o eliminar elementos de la tupla.
+    \begin{lstlisting}[language={python}]
+items = (19, 21, 28, 11)    # Esto es una tupla
+    \end{lstlisting}
+    La única forma de modificar una tupla es sobreescribirla.
+    \begin{lstlisting}[language={python}]
+numbers = (1, 2, 3, 4, 5)
+print(numbers)
+numbers = (6, 7, 8, 9, 10)
+print(numbers)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+(1, 2, 3, 4, 5)
+(6, 7, 8, 9, 10)
+    \end{lstlisting}
+    Si queremos asignar los elementos de una tupla a otras variables, se denomina \emph{unpacking}, lo cual podemos hacerlo de dos maneras.
+    \begin{lstlisting}[language={python}]
+ages = (25, 30, 35, 40)
+Drake = ages[0]
+Emma = ages[1]
+Sully = ages[2]
+print("Drake tiene", Drake, ", Emma", Emma, "y Sully", Sully)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+Drake tiene 25 , Emma 30 y Sully 35
+    \end{lstlisting}
+    O también como
+    \begin{lstlisting}[language={python}]
+ages = (25, 30, 35, 40)
+Drake, Emma, Sully, Sam = ages
+print("Drake tiene", Drake, ", Emma", Emma, ", Sully", Sully, "y Sam", Sam)
+    \end{lstlisting}
+    y devuelve
+    \begin{lstlisting}[language={[latex]tex}]
+Drake tiene 25 , Emma 30 , Sully 35 y Sam 40
+    \end{lstlisting}
+    \subsubsection{Diccionario}\label{subsubsec: diccionario}
+    Un \emph{diccionario} es una colección no ordenada que contiene pares \emph{llave : valor} separados por comas dentro de llaves.
+    Los diccionarios están optimizados para buscar valores cuando su llave es conocida.
+    \begin{lstlisting}[language = {python}]
+capitals = {"USA" : "Washington D.C.", "France" : "Paris", "India" : "New Delhi"}
+    \end{lstlisting}
+    En el ejemplo de arriba, \emph{capitals} es el objeto diccionario que contiene los pares llave-valor entre llaves. El lado izquierdo del : es la llave y el derecho el valor. La llave debe ser única e inmutable. Un número, string o tupla puede ser usada como llave.
+    \begin{lstlisting}[language = {python}]
+d = {}  # diccionario vacio
+print(d)
+
+numNames = {1 : "One", 2 : "Two", 3 : "Three"}  # diccionario de llave entera y valores string
+print(numNames)
+
+decNames = {1.5 : "One and Half", 2.5 : "Two and Half", 3.5 : "Three and Half"}  # diccionario de llave float y valores string
+print(decNames)
+
+items = {("Parker", "Reynolds", "Camlin") : "pen", ("LG", "Whirpool", "Samsung") : "Refrigerator"} # diccionario de llave tupla y valores string
+print(items)
+
+romanNums = {'I' : 1, 'II' : 2, 'III' : 3, 'IV' : 4, 'V' : 5}   # diccionario de llave string y valores enteros
+print(romanNums)
+    \end{lstlisting}
+    Y devuelve
+    \begin{lstlisting}[language = {[latex]tex}]
+{}
+{1: 'One', 2: 'Two', 3: 'Three'}
+{1.5: 'One and Half', 2.5: 'Two and Half', 3.5: 'Three and Half'}
+{('Parker', 'Reynolds', 'Camlin'): 'pen', ('LG', 'Whirpool', 'Samsung'): 'Refrigerator'}
+{'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5}
+    \end{lstlisting}
+	\subsection{Funciones numéricas}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Función & Descripción \\
+			\hline
+			\texttt{abs()}& Devuelve el valor absoluto del número \\
+			\hline
+			\texttt{math.ceil()}& Devuelve el valor techo del número \\
+			\hline
+			\texttt{max()}& Devuelve el máximo valor de un conjunto de números \\
+			\hline
+			\texttt{min()}& Devuelve el mínimo valor de un conjunto de números \\
+			\hline
+			\texttt{pow(x,y)}& Devuelve la potencia de $ x $ a la $ y $ \\
+			\hline
+			\texttt{math.sqrt()}& Devuelve la raíz cuadrada del número \\
+			\hline
+			\texttt{random.random()}& Devuelve un número aleatorio \\
+			\hline
+			\texttt{random.randrange(start, stop, step)}& Devuelve un valor aleatorio en un rango particular \\
+			\hline
+			\texttt{math.sin(x)}& Devuelve el seno del número \\
+			\hline
+			\texttt{math.cos(x)}& Devuelve el coseno del número \\
+			\hline
+			\texttt{math.tan(x)}& Devuelve la tangente del número \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{itemize}
+		\item Función \texttt{abs}\\
+		Esta función devuelve el valor absoluto de un número.
+		\begin{lstlisting}[language={python}]
+a = -1.23
+print(abs(a))
+		\end{lstlisting}
+		Y devuelve:
+		\begin{lstlisting}[language={[latex]tex}]
+1.23		
+		\end{lstlisting}
+		\item Función \texttt{ceil}\\
+		Esta función devuelve el valor techo de un número. Para esta función debemos importar el módulo \emph{math}.
+		\begin{lstlisting}[language={python}]
+import math
+a = -1.23
+print(math.ceil(a))
+		\end{lstlisting}
+		Y devuelve:
+		\begin{lstlisting}[language={[latex]tex}]
+2
+		\end{lstlisting}
+		\item Función \texttt{max}\\
+		Esta función devuelve el número más grande de un conjunto de números.
+		\begin{lstlisting}[language={python}]
+print(max(3,4,5))
+		\end{lstlisting}
+		Y devuelve:
+		\begin{lstlisting}[language={[latex]tex}]
+5
+		\end{lstlisting}
+		\item Función \texttt{min}\\
+		Esta función devuelve el número más pequeño de un conjunto de números.
+		\begin{lstlisting}[language={python}]
+print(min(3,4,5))
+		\end{lstlisting}
+		Y devuelve:
+		\begin{lstlisting}[language={[latex]tex}]
+3
+		\end{lstlisting}
+		\item Función \texttt{pow}\\
+		Esta función devuelve el valor de $ x $ elevado a $ y $, donde la sintaxis es $ \operatorname{pow}(x,y) $.
+		\begin{lstlisting}[language={python}]
+print(pow(2,3))
+		\end{lstlisting}
+		Y devuelve:
+		\begin{lstlisting}[language={[latex]tex}]
+8
+		\end{lstlisting}
+		\item Función \texttt{sqrt}\\
+		Esta función devuelve la raíz cuadrada de un número. Para esta función debemos importar el módulo \emph{math}.
+		\begin{lstlisting}[language={python}]
+import math
+print(math.sqrt(9))
+		\end{lstlisting}
+		Y devuelve:
+		\begin{lstlisting}[language={[latex]tex}]
+3
+		\end{lstlisting}
+		\item Función \texttt{random}\\
+		Esta función devuelve un número aleatorio. Para esta función debemos importar el módulo \emph{random}
+		\begin{lstlisting}[language={python}]
+import random
+print(random.random())
+		\end{lstlisting}
+		\item Función \texttt{randrange}\\
+		Esta función devuelve un número aleatorio dentro de un rango particular. Para esta función debemos importar el módulo \emph{random}.
+		\begin{lstlisting}[language={python}]
+import random
+print(random.randrange(1,10,2))
+		\end{lstlisting}
+		\item Función \texttt{sin}\\
+		Esta función devuelve el seno de un número en radianes. Para esta función debemos importar el módulo \emph{math}.
+		\begin{lstlisting}[language={python}]
+import math
+print(math.sin(45))
+		\end{lstlisting}
+		Y devuelve:
+		\begin{lstlisting}[language={[latex]tex}]
+0.8509035245
+		\end{lstlisting}
+		\item Función \texttt{cos}\\
+		Esta función devuelve el coseno de un número en radianes. Para esta función debemos importar el módulo \emph{math}.
+		\begin{lstlisting}[language={python}]
+import math
+print(math.cos(45))
+		\end{lstlisting}
+		Y devuelve:
+		\begin{lstlisting}[language={[latex]tex}]
+0.5253219888
+		\end{lstlisting}
+		\item Función \texttt{tan}\\
+		Esta función devuelve la tangente de un número en radianes. Para esta función debemos importar el módulo \emph{math}.
+		\begin{lstlisting}[language={python}]
+import math
+print(math.tan(45))
+		\end{lstlisting}
+		Y devuelve:
+		\begin{lstlisting}[language={[latex]tex}]
+1.619775191
+		\end{lstlisting}
+	\end{itemize}
